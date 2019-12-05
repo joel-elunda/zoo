@@ -69,7 +69,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">GESTION DES COMPTES VISITEURS</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Gérez ici les comptes des visiteurs du zoo.</p>
                 <a href="#" class="btn btn-light border">Gérer</a>
             </div>
         </div>
@@ -82,7 +82,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">GESTION DES RESERVATIONS</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Validez les réservations des visiteurs.</p>
                 <a href="#" class="btn btn-light border">Gérer</a>
             </div>
         </div>
