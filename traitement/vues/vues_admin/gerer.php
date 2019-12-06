@@ -116,7 +116,7 @@
         <aside class="col-lg-12">
         
             <ul class="list-group">
-                <li class="h6 list-group-item"><a href="traitement/vues/vues_admin/gerer-animal.php">Se déconnecter</a></li>
+                <li class="h6 list-group-item"><a href="../../../index.php">Se déconnecter</a></li>
             </ul>
         </aside>
         <aside class="col-lg-12">

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <title>Créer votre compte</title>
 </head>
 <style>
@@ -15,7 +15,7 @@
 }
 </style>
 <body>
-<?php include '../header.php'; ?>
+<?php include 'header.php'; ?>
 <div class="container-fluid">
     <header class="row">
         <div class="col-lg-12">
@@ -26,7 +26,7 @@
         <div class="col-lg-2">
             <div class="row">
                 <aside class="col-lg-12 border-right">
-                    <?php include '../card-zoo.php'; ?>
+                    <?php include 'card-zoo.php'; ?>
                 </aside>
                 <aside class="col-lg-12">
                     <!-- Aside -->
@@ -34,25 +34,25 @@
             </div>
         </div>
         <section class="col-lg-8">
-            <form class="w-50 p-3">
+            <form action="../controllers/creer_compte.php" method="post" class="w-50 p-3">
                 <h4>Créer un compte</h4>
                 <div class="form-group">
-                    <input type="email" class="form-control form-control-sm" id="exampleNameHelp" aria-describedby="nameHelp" placeholder="Name">
+                    <input type="nom" name="nom" class="form-control form-control-sm" id="exampleNameHelp" aria-describedby="nameHelp" placeholder="Name">
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small id="email" name="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control form-control-sm" id="exampleInputPassword2" placeholder="Confirm">
+                    <input type="password" id="confirmation" name="confirmation" class="form-control form-control-sm" id="exampleInputPassword2" placeholder="Confirm">
                 </div>
                 <div class="form-group">
-                    <a href="#" class="h6">Se connecter</a>
+                    <a href="se_connecter.php" class="h6">Se connecter</a>
                 </div>
-                <button type="submit" class="btn btn-light border">Créer votre compte</button>
+                <button type="submit" name="form_creer_compte" class="btn btn-light border">Créer votre compte</button>
                 
             </form>
         </section>
@@ -60,7 +60,7 @@
             <div class="row">
                 <aside class="col-lg-12">
                     <ul class="list-group">
-                        <li class="h6 list-group-item"><a href="../../../index.php">Accueil</a></li>
+                        <li class="h6 list-group-item"><a href="../../index.php">Accueil</a></li>
                         <li class="h6 list-group-item"><a href="se_connecter.php">Se connecter</a></li>
                         <li class="h6 list-group-item"><a href="../horaires-tarifs.php">Hoaires et tarifs</a></li>
                     </ul>

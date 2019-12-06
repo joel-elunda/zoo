@@ -66,7 +66,7 @@
         <aside class="col-lg-12">
         
         <ul class="list-group">
-          <li class="h6 list-group-item"><a href="traitement/vues/vues_visiteur/se_connecter.php">Se connecter</a></li>
+          <li class="h6 list-group-item"><a href="traitement/vues/se_connecter.php">Se connecter</a></li>
           <li class="h6 list-group-item"><a href="traitement/vues/horaires-tarifs.php">Nos hoaires et tarifs</a></li>
           <li class="h6 list-group-item"><a href="traitement/vues/vues_admin/gerer.php">ADMIN</a></li>
         </ul>

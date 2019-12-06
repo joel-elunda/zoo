@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <title>Se connecter</title>
 </head>
 <style>
@@ -15,7 +15,7 @@
 }
 </style>
 <body>
-<?php include '../header.php'; ?>
+<?php include 'header.php'; ?>
 <div class="container-fluid">
     <header class="row">
         <div class="col-lg-12">
@@ -26,7 +26,7 @@
         <div class="col-lg-2">
             <div class="row">
                 <aside class="col-lg-12 border-right">
-                    <?php include '../card-zoo.php'; ?>
+                    <?php include 'card-zoo.php'; ?>
                 </aside>
                 <aside class="col-lg-12">
                     <!-- Aside -->
