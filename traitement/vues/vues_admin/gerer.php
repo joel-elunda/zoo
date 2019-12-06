@@ -58,7 +58,7 @@
             <div class="card-body">
                 <h5 class="card-title">GESTION D'ANIMAUX SAUVAGES ET D'ESPÈCES DU ZOO</h5>
                 <p class="card-text">Obtenez une panoplis de tous les animaux et gérez les animaux dans leur ensemble.</p>
-                <a href="#" class="btn btn-light border">Gérer</a>
+                <a href="gerer-animaux.php" class="btn btn-light border">Gérer</a>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
             <div class="card-body">
                 <h5 class="card-title">GESTION DES COMPTES VISITEURS</h5>
                 <p class="card-text">Gérez ici les comptes des visiteurs du zoo.</p>
-                <a href="#" class="btn btn-light border">Gérer</a>
+                <a href="gerer-visiteurs.php" class="btn btn-light border">Gérer</a>
             </div>
         </div>
 
@@ -83,7 +83,7 @@
             <div class="card-body">
                 <h5 class="card-title">GESTION DES RESERVATIONS</h5>
                 <p class="card-text">Validez les réservations des visiteurs.</p>
-                <a href="#" class="btn btn-light border">Gérer</a>
+                <a href="gerer-reservations.php" class="btn btn-light border">Gérer</a>
             </div>
         </div>
 <!-- 
@@ -114,15 +114,7 @@
     <div class="col-lg-2">
         <div class="row">
         <aside class="col-lg-12">
-            <ul class="list-group">
-                <li class="h6 list-group-item"><a href="#">ANIMAUX</a></li>
-            </ul>
-            <ul class="list-group">
-                <li class="h6 list-group-item"><a href="#">VISITEURS</a></li>
-            </ul>
-            <ul class="list-group">
-                <li class="h6 list-group-item"><a href="#">HORAIRES ET TARIFS</a></li>
-            </ul>
+        
             <ul class="list-group">
                 <li class="h6 list-group-item"><a href="traitement/vues/vues_admin/gerer-animal.php">Se déconnecter</a></li>
             </ul>

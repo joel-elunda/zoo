@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Zoo de Lubumbashi</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <title>Gérer les horaires</title>
 </head>
 <style type="text/css">
 .container-fluid{
@@ -21,7 +21,7 @@
   
   <header class="row">
     <div class="col-lg-12">
-    <?php include 'traitement/vues/header.php'; ?>
+    <?php include '../../../traitement/vues/header.php'; ?>
     </div>
   </header>
 
@@ -31,7 +31,7 @@
         <aside class="col-lg-12">
         <div class="card-deck">
         <div class="card">
-            <img src="img/zoo.jpg" class="card-img-top" alt="...">
+            <img src="../../../img/parallax-bg.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Zoo de Lubumbashi</h5>
                 <p class="card-text">
@@ -52,11 +52,18 @@
     
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Espèces animales</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h5 class="card-title">Gérer les horaires</h5>
+            <p class="card-text"><small class="text-muted">Mettez à jour la liste de vos horaires</small></p>
         </div>
-        <img src="img/zebre.jpg" class="card-img-top" alt="...">
+        <!-- <img src="img/zebre.jpg" class="card-img-top" alt="..."> -->
+        <div class="row">
+
+            <div class="col">
+            
+            
+            </div>
+
+            </div>
     </div>
 
     </section>
@@ -66,9 +73,11 @@
         <aside class="col-lg-12">
         
         <ul class="list-group">
-          <li class="h6 list-group-item"><a href="traitement/vues/vues_visiteur/se_connecter.php">Se connecter</a></li>
-          <li class="h6 list-group-item"><a href="traitement/vues/horaires-tarifs.php">Nos hoaires et tarifs</a></li>
-          <li class="h6 list-group-item"><a href="traitement/vues/vues_admin/gerer.php">ADMIN</a></li>
+            <li class="h6 list-group-item"><a href="gerer.php">Accueil</a></li>
+            <li class="h6 list-group-item"><a href="gerer-reservations.php">RESERVATIONS</a></li> 
+            <li class="h6 list-group-item"><a href="gerer-visiteurs.php">VISITEURS</a></li> 
+            <li class="h6 list-group-item"><a href="gerer-animaux.php">ANIMAUX</a></li>
+            <li class="h6 list-group-item"><a href="#">Se déconnecter</a></li>
         </ul>
         </aside>
         <aside class="col-lg-12">

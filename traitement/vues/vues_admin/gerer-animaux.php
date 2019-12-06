@@ -31,7 +31,7 @@
         <aside class="col-lg-12">
         <div class="card-deck">
         <div class="card">
-            <img src="../../../img/zoo.jpg" class="card-img-top" alt="...">
+            <img src="../../../img/parallax-bg.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Zoo de Lubumbashi</h5>
                 <p class="card-text">
@@ -53,7 +53,6 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Gérer les animaux</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Listes de tous les animaux</small></p>
         </div>
         <!-- <img src="img/zebre.jpg" class="card-img-top" alt="..."> -->
@@ -66,12 +65,14 @@
                         <th>*</th>
                         <th>Nom</th>
                         <th>Catégorie</th>
+                        <th>Nombre</th>
                         <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th  scope="row"></th>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -92,16 +93,11 @@
         <aside class="col-lg-12">
         
         <ul class="list-group">
-          <li class="h6 list-group-item"><a href="traitement/vues/vues_visiteur/se_connecter.php">Se déconnecter</a></li>
-        </ul>
-        <ul class="list-group">
-            <li class="h6 list-group-item"><a href="traitement/vues/horaires-tarifs.php">RESERVATIONS</a></li>
-        </ul>
-        <ul class="list-group">
-          <li class="h6 list-group-item"><a href="traitement/vues/vues_visiteur/se_connecter.php">HORAIRES</a></li>
-        </ul>
-        <ul class="list-group">
-          <li class="h6 list-group-item"><a href="traitement/vues/vues_visiteur/se_connecter.php">VISITEURS</a></li>
+          <li class="h6 list-group-item"><a href="gerer.php">Accueil</a></li>
+          <li class="h6 list-group-item"><a href="gerer-reservations.php">RESERVATIONS</a></li>
+          <li class="h6 list-group-item"><a href="gerer-horaires.php">HORAIRES</a></li>
+          <li class="h6 list-group-item"><a href="gerer-visiteurs.php">VISITEURS</a></li>
+          <li class="h6 list-group-item"><a href="#">Se déconnecter</a></li>
         </ul>
         </aside>
         <aside class="col-lg-12">
