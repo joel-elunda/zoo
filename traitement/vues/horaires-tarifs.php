@@ -100,7 +100,7 @@
                 <aside class="col-lg-12">
                     <ul class="list-group">
                         <li class="h6 list-group-item"><a href="../../index.php">Accueil</a></li>
-                        <li class="h6 list-group-item"><a href="vues_visiteur/se_connecter.php">Se connecter</a></li>
+                        <li class="h6 list-group-item"><a href="se_connecter.php">Se connecter</a></li>
                     </ul>
                 </aside>
                 <aside class="col-lg-12">

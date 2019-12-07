@@ -34,21 +34,42 @@
             </div>
         </div>
         <section class="col-lg-8">
-            <form class="w-50 p-3">
+            <form action="../controllers/compte_utilisateur.php" method="post" class="w-50 p-3">
                 <h4>Login</h4>
+                <h6>
+                    <?php
+                        if(  isset($_GET['valeur'] )){
+                            if( $_GET['valeur'] == 'compte_cree') {
+                                echo '<span class="badge badge-pill badge-success">Votre compte a été créé.</span>';
+                            }
+                            if( $_GET['valeur'] == 'aucune_donnee') {
+                                echo '<span class="badge badge-pill badge-danger">Aucune donnée entréé.</span>';
+                            }
+                            if( $_GET['valeur'] == 'email_manquant') {
+                                echo '<span class="badge badge-pill badge-danger">Erreur : Veuillez entrer l\'email.</span>';
+                            }
+                            if( $_GET['valeur'] == 'mot_de_passe_manquant') {
+                                echo '<span class="badge badge-pill badge-danger">Erreur : Veuillez entrer le mot de passe.</span>';
+                            }
+                            if( $_GET['valeur'] == 'login_incorrect') {
+                                echo '<span class="badge badge-pill badge-danger">Login ou mot de passe incorrect.</span>';
+                            }
+                        }
+                    ?>
+                </h6>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" id="email" name="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" id="mot_de_passe" name="mot_de_passe"  class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <a href="creer_compte.php" class="h6">S'inscrire</a>
                 </div>
-                <button type="submit" class="btn btn-light border">Se connecter</button>
+                <button type="submit" name="form_se_connecter" class="btn btn-light border">Se connecter</button>
                 
             </form>
         </section>
@@ -58,7 +79,7 @@
                     <ul class="list-group">
                         <li class="h6 list-group-item"><a href="../../../index.php">Accueil</a></li>
                         <li class="h6 list-group-item"><a href="creer_compte.php">Créer un compte</a></li>
-                        <li class="h6 list-group-item"><a href="../horaires-tarifs.php">Horaires et tarifs</a></li>
+                        <li class="h6 list-group-item"><a href="horaires-tarifs.php">Horaires et tarifs</a></li>
                     </ul>
                 </aside>
                 <aside class="col-lg-12">

@@ -36,9 +36,6 @@
     }
 
 
-
-
-
     function inserer($donnees, $table) {
 
         $table = trim($table);
@@ -48,17 +45,16 @@
             if(strcmp($table, $GLOBALS['table_utilisateurs']) == 0) {
                
                 $requete = bdd() -> prepare('INSERT INTO ' . $table . ' (id, nom, email, mot_de_passe, date_enregistrement, type)
-                VALUES (NULL, :nom, :email, :mot_de_passe, :date_enregistrement, :type);');
+                VALUES (NULL, :nom, :email, :mot_de_passe, CURDATE(), :type);');
                
                 $requete -> execute(array(
                     'nom' => $donnees['nom'],
                     'email' => $donnees['email'],
                     'mot_de_passe' => $donnees['mot_de_passe'],
-                    'date_enregistrement' => $donnees['date_enregistrement'],
-                    'type' => $donnees['type']
+                    'type' => '0'
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
             if(strcmp($table, $GLOBALS['table_horaires']) == 0) {
@@ -73,7 +69,7 @@
                     'date_fin' => $donnees['date_fin']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
             if(strcmp($table, $GLOBALS['table_animaux']) == 0) {
@@ -87,7 +83,7 @@
                     'nombre' => $donnees['nombre']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
             if(strcmp($table, $GLOBALS['table_tarifs']) == 0) {
@@ -100,7 +96,7 @@
                     'prix' => $donnees['prix']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
             if(strcmp($table, $GLOBALS['table_reservations']) == 0) {
@@ -118,7 +114,7 @@
                     'prix' => $donnees['prix']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
         }
 
@@ -148,7 +144,7 @@
                     'type' => $donnees['type']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
             if(strcmp($table, $GLOBALS['table_horaires']) == 0) {
@@ -164,7 +160,7 @@
                     'date_fin' => $donnees['date_fin']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
             if(strcmp($table, $GLOBALS['table_animaux']) == 0) {
@@ -178,7 +174,7 @@
                     'nombre' => $donnees['nombre']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
             if(strcmp($table, $GLOBALS['table_tarifs']) == 0) {
@@ -191,7 +187,7 @@
                     'prix' => $donnees['prix']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
 
 
@@ -209,13 +205,29 @@
                     'prix' => $donnees['prix']
                 ));
 
-                if($requete) { return TRUE } else { return FALSE; }
+                if($requete) { return TRUE; } else { return FALSE; }
             }
         }
     }
 
 
+    function utilisateur( $email, $mot_de_passe) {
+        
+        if( empty($email) == FALSE && empty($mot_de_passe) == FALSE) {
+           
+            $requete = bdd() -> prepare ('SELECT * FROM ' . $GLOBALS['table_utilisateurs'] . '
+            WHERE email = :email AND mot_de_passe = :mot_de_passe;');
+            
+            $requete -> execute(array(
+                'email' => trim($email),
+                'mot_de_passe' => trim($mot_de_passe)
+            ));
 
+            $resultat = $requete -> fetch();
+
+            if($resultat != NULL) { return $resultat; } else { return NULL; }
+        }
+    }
 
     function supprimer($id, $table) {
 
@@ -227,7 +239,7 @@
 
     }
 
-    function count($tabel) {
+    function compter($table) {
         $table = trim($table);
         if( empty($table) == FALSE) {
             $resultat = bdd() -> exec('SELECT COUNT(*) AS nombre FROM ' . $table );
