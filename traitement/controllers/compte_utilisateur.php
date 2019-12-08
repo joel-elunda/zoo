@@ -64,7 +64,6 @@
 
         
         if(empty($email) == TRUE && empty($mot_de_passe) == TRUE) {
-            echo '<h4>Erreur : Veuillez entrer les données.</h4>';
             header('Location: ../vues/se_connecter.php?valeur=aucune_donnee');
             exit;
         }
@@ -84,7 +83,9 @@
         if( $utilisateur == NULL) {
             header('Location: ../vues/se_connecter.php?valeur=login_incorrect');
             exit;
+
         } else {
+            
             $_SESSION = array(
                 'id' => $utilisateur['id'],
                 'nom' => $utilisateur['nom'],
@@ -93,7 +94,13 @@
                 'type' => $utilisateur['type']
             );
     
-            header('Location: ../../index.php');
+            if( $utilisateur['type'] == 0 ) {
+                header('Location: ../../index.php');
+            }
+
+            if( $utilisateur['type'] == 2 ) {
+                header('Location: ../vues/vues_admin/gerer.php');
+            }
         }
     }
 

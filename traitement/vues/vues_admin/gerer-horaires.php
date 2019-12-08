@@ -21,7 +21,19 @@
   
   <header class="row">
     <div class="col-lg-12">
-    <?php include '../../../traitement/vues/header.php'; ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">Zoo de Lubumbashi - <strong>
+    <?php
+    session_start();
+    if (isset($_SESSION['nom']) && isset($_SESSION['email']))   {
+        echo $_SESSION['nom'];
+    }?>
+    </strong>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </nav>
     </div>
   </header>
 
@@ -50,22 +62,106 @@
 
     <section class="col-lg-8">
     
-    <div class="card">
         <div class="card-body">
             <h5 class="card-title">Gérer les horaires</h5>
             <p class="card-text"><small class="text-muted">Mettez à jour la liste de vos horaires</small></p>
         </div>
-        <!-- <img src="img/zebre.jpg" class="card-img-top" alt="..."> -->
-        <div class="row">
 
-            <div class="col">
-            
-            
-            </div>
+        
+    <form action="../../controllers/admin/gerer.php" method="post"> 
+      <h6>
+        <?php
+          if(  isset($_GET['valeur'] )){
+              if( $_GET['valeur'] == 'aucune_donnee') {
+                  echo '<span class="badge badge-pill badge-danger">Veuillez remplir les champs.</span>';
+              }
+              if( $_GET['valeur'] == 'date_debut_manquant') {
+                  echo '<span class="badge badge-pill badge-danger">Date début manquant.</span>';
+              }
+              if( $_GET['valeur'] == 'date_fin_manquant') {
+                  echo '<span class="badge badge-pill badge-danger">Date fin manquant</span>';
+              }
+              if( $_GET['valeur'] == 'heure_debut_manquant') {
+                echo '<span class="badge badge-pill badge-danger">Heure début manquant</span>';
+              }
+              if( $_GET['valeur'] == 'heure_fin_manquant') {
+                echo '<span class="badge badge-pill badge-danger">Heure fin manquant.</span>';
+              }
+              if( $_GET['valeur'] == 'donnees_inserees') {
+                echo '<span class="badge badge-pill badge-success">Données ajoutées.</span>';
+              }
+          }
+        ?>
+      </h6>
+      <div class="form-row">
+        <div class="col-3"> 
+          <label for=""><small>Date début</small></label>
+          <input type="date" name="date_debut" id="date_debut" class="form-control form-control-sm" value="Lundi"> 
+        </div>
+        <div class="col-3"> 
+          <label for=""><small>Date fin</small></label>
+          <input type="date" name="date_fin" id="date_fin" class="form-control form-control-sm"> 
+        </div>
+        <div class="col-3">
+          <label for=""><small>Heure début</small></label>
+          <input type="time" name="heure_debut" id="heure_debut" class="form-control form-control-sm" placeholder="State">
+        </div>
+        <div class="col-3">
+          <label for=""><small>Heure fin</small></label> 
+          <input type="time" name="heure_fin" id="heure_fin" class="form-control form-control-sm"   placeholder="Zip">
+        </div>
+      </div> 
+      <br>
+      <div class="form-row">
+        <div class="col"> 
+          <input type="text" name="evenement" id="evenement" class="form-control form-control-sm" placeholder="Evenement"> 
+        </div>
+        <div class="col-3"> 
+          <button type="submit" name="form_horaires" class="form-control form-control-sm btn-light border">Ajouter</button>
+        </div>
+      </div> 
+    </form>
 
-            </div>
-    </div>
-
+    <hr>
+    <table class="table table-bordered table-striped table-condensed table-sm">
+      <thead>
+          <tr>
+              <th>*</th>
+              <th>Date</th>
+              <th>Heure</th>
+              <th>Evenement</th>
+              <th>Option</th>
+          </tr>
+      </thead>
+      <tbody>
+      <?php
+        require_once '../../models/BDD.php';
+                
+        $table_horaires = 'horaires';
+        
+        $horaires = contenu($GLOBALS['table_horaires']);
+        
+        if( empty($horaires) ) {
+            echo 'Empty';
+        }
+        else {
+            while( $resultat = $horaires -> fetch() ) {
+      ?>
+            <tr>
+              <td scope="row"><?= $resultat['id']; ?></td>
+              <td><?= '<strong>' . $resultat['date_debut'] .'</strong> > <strong>' . $resultat['date_fin'] . '</strong>';  ?></td>
+              <td><?= 'De <strong>' . $resultat['heure_debut'] . '</strong> à <strong>' . $resultat['heure_fin'] . '</strong>'; ?></td> 
+              <td><?= $resultat['evenement']; ?></td>
+              <td>
+                <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Supprimer</span></a>
+                <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Modifier</span></a> 
+              </td>
+            </tr>
+            <?php } }?>
+      </tbody>
+      <tfoot>
+      </tfoot>
+      </table>
     </section>
   
     <div class="col-lg-2">

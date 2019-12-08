@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,19 @@
   
   <header class="row">
     <div class="col-lg-12">
-    <?php include '../../../traitement/vues/header.php'; ?>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">Zoo de Lubumbashi - <strong>
+    <?php
+    if (isset($_SESSION['nom']) && isset($_SESSION['email']))   {
+        echo $_SESSION['nom'];
+    }?>
+    </strong>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </nav>
     </div>
   </header>
 
@@ -64,17 +76,41 @@
                     <tr>
                         <th>*</th>
                         <th>Nom</th>
-                        <th>Catégorie</th>
+                        <th>Email</th>
                         <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th  scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <?php
+                  require_once '../../models/BDD.php';
+                  
+                  $table_utilisateurs = 'utilisateurs';
+                  
+                  $visiteurs = contenu($GLOBALS['table_utilisateurs']);
+                  
+                  if( empty($visiteurs) ) {
+                      echo 'Empty';
+                  }
+                  else {
+                      while( $resultat = $visiteurs -> fetch() ) {
+                        if($resultat['type'] == 0) {
+                        ?>
+                          <tr>
+                            <th  scope="row"> <?= $resultat['id']; ?></th>
+                            <td><?= $resultat['nom']; ?></td>
+                            <td><?= $resultat['email']; ?></td>
+                            <td>
+                              <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Supprimer</span></a>
+                              <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Modifier</span></a> 
+                            </td>
+                        </tr>  
+                        <?php
+                      } 
+                        }
+                      }
+                    ?>
+                    
+                
                 </tbody>
             <tfoot>
             </tfoot>

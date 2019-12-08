@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,21 @@
   
   <header class="row">
     <div class="col-lg-12">
-    <?php include '../../../traitement/vues/header.php'; ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">Zoo de Lubumbashi - 
+      <strong>
+        <?php
+          
+          if (isset($_SESSION['nom']) && isset($_SESSION['email']))   {
+              echo $_SESSION['nom'];
+          }
+        ?>
+      </strong>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </nav>
     </div>
   </header>
 
@@ -50,41 +64,112 @@
 
     <section class="col-lg-8">
     
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Gérer les animaux</h5>
-            <p class="card-text"><small class="text-muted">Listes de tous les animaux</small></p>
-        </div>
-        <!-- <img src="img/zebre.jpg" class="card-img-top" alt="..."> -->
         <div class="row">
+          <form action="../../controllers/admin/gerer.php" method="post" class="p-3">
+            <h4>Ajouter un animal</h4>
+            <h6>
+              <?php
+                if(  isset($_GET['valeur'] )){
+                    if( $_GET['valeur'] == 'aucune_donnee') {
+                        echo '<span class="badge badge-pill badge-danger">Veuillez compléter tous les champs.</span>';
+                    }
+                    
+                    if( $_GET['valeur'] == 'nom_manquant') {
+                        echo '<span class="badge badge-pill badge-danger">Erreur : Veuillez entrer le nom de l\'animal.</span>';
+                    }
+                    if( $_GET['valeur'] == 'categorie_manquant') {
+                        echo '<span class="badge badge-pill badge-danger">Erreur : Veuillez entrer la categorie.</span>';
+                    }
+                    if( $_GET['valeur'] == 'erreur_insertion') {
+                      echo '<span class="badge badge-pill badge-danger">Erreur à l\'insertion</span>';
+                    }
+                    if( $_GET['valeur'] == 'donnees_inserees') {
+                      echo '<span class="badge badge-pill badge-success">Données ajoutées.</span>';
+                  }
+                }
+              ?>
+            </h6>
 
-            <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                    <input type="text" name="nom"  id="nom" class="form-control form-control-sm" id="exampleNameHelp" aria-describedby="nameHelp" placeholder="Nom">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <select name="categorie" class="form-control form-control-sm">
+                    <option>Mammifère</option>
+                    <option>Oiseau</option>
+                    <option>Reptile</option>
+                  </select> 
+                </div>
+              </div>
+              <div class="col">
+                <input type="number" name="nombre"  id="nombre" class="form-control form-control-sm" id="exampleNameHelp" aria-describedby="nameHelp" placeholder="Nombre">
+              </div>
+                    
+              <div class="col">
+                <div class="form-group">
+                  <input type="file" name="photo" id="photo" class="form-control-file form-control-sm" id="exampleFormControlFile1">
+                </div>
+              </div>
+              <div class="col">
+                <button type="submit" name="form_ajouter_animal" class="btn btn-light border">Ajouter</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <hr>
+          <div class="row">
             <table class="table table-bordered table-striped table-condensed table-sm">
-                <thead>
-                    <tr>
-                        <th>*</th>
-                        <th>Nom</th>
-                        <th>Catégorie</th>
-                        <th>Nombre</th>
-                        <th>Option</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th  scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            <tfoot>
-            </tfoot>
+              <thead>
+                  <tr>
+                    <th>*</th>
+                    <th>Nom</th>
+                    <th>Catégorie</th>
+                    <th>Nombre</th>
+                    <th>Date</th>
+                    <th>Option</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <?php
+                  require_once '../../models/BDD.php';
+                  
+                  $table_animaux = 'animaux';
+                  $animaux = contenu($GLOBALS['table_animaux']);
+                  
+                  if( empty($animaux) ) {
+                      echo '<tr><td>Empty</td></tr>';
+                  }
+                  else {
+                      while( $resultat = $animaux -> fetch() ) {
+                        ?>
+                          <tr>
+                            <th  scope="row"> <?= $resultat['id']; ?></th>
+                            <td><?= $resultat['nom']; ?></td>
+                            <td><?= $resultat['categorie']; ?></td>
+                            <td><?=  $resultat['nombre'];  ?></td>
+                            <td><?= $resultat['date_enregistrement']; ?></td>
+                            <td>
+                              <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Supprimer</span></a>
+                              <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Modifier</span></a> 
+                            </td>
+                        </tr>  
+                        <?php
+                      } 
+                        }
+                    ?>
+                  <?php
+                ?>
+                
+              </tbody>
+              <tfoot>
+              </tfoot>
             </table>
-            </div>
-
-            </div>
-    </div>
+          </div>
+          
 
     </section>
   

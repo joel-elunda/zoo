@@ -27,7 +27,7 @@
 
 
 
-    function contenu($table) {
+    function contenu( $table ) {
         if(empty($table) == FALSE) {
             $requete =  'SELECT * FROM ' . $table; 
             $resultat = bdd() -> query($requete);
@@ -35,6 +35,9 @@
         }
     }
 
+    
+
+    
 
     function inserer($donnees, $table) {
 
@@ -59,14 +62,15 @@
 
             if(strcmp($table, $GLOBALS['table_horaires']) == 0) {
 
-                $requete = bdd() -> prepare('INSERT INTO ' . $table . ' (id, heure_debut, heure_fin, date_debut, date_fin)
-                VALUES (NULL, :heure_debut, :heure_fin, :date_debut, :date_fin);');
+                $requete = bdd() -> prepare('INSERT INTO ' . $table . ' (id, heure_debut, heure_fin, date_debut, date_fin, evenement)
+                VALUES (NULL, :heure_debut, :heure_fin, :date_debut, :date_fin, :evenement);');
 
                 $requete -> execute(array(
                     'heure_debut' => $donnees['heure_debut'],
                     'heure_fin' => $donnees['heure_fin'],
                     'date_debut' => $donnees['date_debut'],
-                    'date_fin' => $donnees['date_fin']
+                    'date_fin' => $donnees['date_fin'],
+                    'evenement' => $donnees['evenement']
                 ));
 
                 if($requete) { return TRUE; } else { return FALSE; }
@@ -74,13 +78,14 @@
 
             if(strcmp($table, $GLOBALS['table_animaux']) == 0) {
 
-                $requete = bdd() -> prepare('INSERT INTO ' . $table . '(id, nom, categorie, nombre)
-                VALUES (NULL, :nom, :categorie, :nombre);');
+                $requete = bdd() -> prepare('INSERT INTO ' . $table . '(id, nom, categorie, nombre, photo, date_enregistrement)
+                VALUES (NULL, :nom, :categorie, :nombre, :photo, CURDATE());');
 
                 $requete -> execute(array(
                     'nom' => $donnees['nom'],
                     'categorie' => $donnees['categorie'],
-                    'nombre' => $donnees['nombre']
+                    'nombre' => $donnees['nombre'],
+                    'photo' => $donnees['photo']
                 ));
 
                 if($requete) { return TRUE; } else { return FALSE; }
@@ -229,6 +234,8 @@
         }
     }
 
+    
+
     function supprimer($id, $table) {
 
         if( (empty($id) == FALSE) && (empty($table) == FALSE) ) {
@@ -236,7 +243,6 @@
             $resultat = bdd() -> exec($requete);
             if($resultat) {   return TRUE;   } else {    return FALSE;   }
         }
-
     }
 
     function compter($table) {
@@ -244,5 +250,5 @@
         if( empty($table) == FALSE) {
             $resultat = bdd() -> exec('SELECT COUNT(*) AS nombre FROM ' . $table );
         }
-        if($requete != NULL) { return $resultat; } else { return NULL; }
+        if($resultat != NULL) { return $resultat; } else { return NULL; }
     }

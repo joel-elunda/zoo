@@ -21,7 +21,19 @@
   
   <header class="row">
     <div class="col-lg-12">
-    <?php include '../../../traitement/vues/header.php'; ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">Zoo de Lubumbashi - <strong>
+    <?php
+    session_start();
+    if (isset($_SESSION['nom']) && isset($_SESSION['email']))   {
+        echo $_SESSION['nom'];
+    }?>
+    </strong>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </nav>
     </div>
   </header>
 

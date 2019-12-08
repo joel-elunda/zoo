@@ -22,7 +22,21 @@
   
   <header class="row">
     <div class="col-lg-12">
-    <?php include '../header.php'; ?>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">Zoo de Lubumbashi - <strong>
+    <?php
+    session_start();
+    if (isset($_SESSION['nom']) && isset($_SESSION['email']))   {
+        echo $_SESSION['nom'];
+    }?>
+    </strong>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </nav>
+
     </div>
   </header>
 
@@ -58,7 +72,10 @@
             <div class="card-body">
                 <h5 class="card-title">GESTION D'ANIMAUX SAUVAGES ET D'ESPÈCES DU ZOO</h5>
                 <p class="card-text">Obtenez une panoplis de tous les animaux et gérez les animaux dans leur ensemble.</p>
-                <a href="gerer-animaux.php" class="btn btn-light border">Gérer</a>
+                <form action="../../controllers/admin/gerer.php" method="post">
+                <a href="gerer-animaux.php" name="" class="btn btn-light border">Gérer</a>
+                
+                </form>
             </div>
         </div>
 
@@ -70,7 +87,9 @@
             <div class="card-body">
                 <h5 class="card-title">GESTION DES COMPTES VISITEURS</h5>
                 <p class="card-text">Gérez ici les comptes des visiteurs du zoo.</p>
-                <a href="gerer-visiteurs.php" class="btn btn-light border">Gérer</a>
+                <form action="../../controllers/admin/gerer.php" method="post">
+                    <button type="submit" name="gerer_visiteurs" class="btn btn-light border">Gérer</button>
+                </form>
             </div>
         </div>
 
@@ -86,28 +105,6 @@
                 <a href="gerer-reservations.php" class="btn btn-light border">Gérer</a>
             </div>
         </div>
-<!-- 
-        <div class="card">
-            <div class="card-header">
-                Featured
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                Featured
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div> -->
 
     </section>
   
