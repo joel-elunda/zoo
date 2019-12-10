@@ -29,15 +29,12 @@
 
     function contenu( $table ) {
         if(empty($table) == FALSE) {
-            $requete =  'SELECT * FROM ' . $table; 
+            $requete =  'SELECT * FROM ' . $table ; 
             $resultat = bdd() -> query($requete);
             if($resultat) {   return $resultat;   } else {    return NULL;   }
         }
     }
 
-    
-
-    
 
     function inserer($donnees, $table) {
 
@@ -93,11 +90,12 @@
 
             if(strcmp($table, $GLOBALS['table_tarifs']) == 0) {
 
-                $requete = bdd() -> prepare('INSERT INTO ' . $table . ' (id, categorie, prix)
-                VALUES (NULL, :categorie, :prix);');
+                $requete = bdd() -> prepare('INSERT INTO ' . $table . ' (id, categorie, age ,prix)
+                VALUES (NULL, :categorie, :age, :prix);');
 
                 $requete -> execute(array(
                     'categorie' => $donnees['categorie'],
+                    'age' => $donnees['age'],
                     'prix' => $donnees['prix']
                 ));
 

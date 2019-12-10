@@ -71,7 +71,7 @@
         <div class="row">
 
             <div class="col">
-            <table class="table table-bordered table-striped table-condensed table-sm">
+            <table class="table table-bordered table-striped table-condensed table-sm table-hover">
                 <thead>
                     <tr>
                         <th>*</th>
@@ -100,8 +100,8 @@
                             <td><?= $resultat['nom']; ?></td>
                             <td><?= $resultat['email']; ?></td>
                             <td>
-                              <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Supprimer</span></a>
-                              <a href="<?= $resultat['id'] ?>"><span class="badge badge-info">Modifier</span></a> 
+                              <a href="<?= '../../controllers/admin/gerer.php/' . $resultat['id'] ?>" name="supprimer_visiteur"><span class="badge badge-info">Supprimer</span></a>
+                              <a href="<?= '../../controllers/admin/gerer.php/' . $resultat['id'] ?>"><span class="badge badge-info">Modifier</span></a> 
                             </td>
                         </tr>  
                         <?php
@@ -125,12 +125,13 @@
     <div class="col-lg-2">
         <div class="row">
         <aside class="col-lg-12">
-          <ul class="list-group">
-              <li class="h6 list-group-item"><a href="gerer.php">Accueil</a></li>
-              <li class="h6 list-group-item"><a href="gerer-reservations.php">RESERVATIONS</a></li> 
-              <li class="h6 list-group-item"><a href="gerer-horaires.php">HORAIRES</a></li> 
-              <li class="h6 list-group-item"><a href="gerer-animaux.php">ANIMAUX</a></li>
-              <li class="h6 list-group-item"><a href="#">Se déconnecter</a></li>
+          <ul class="list-group  list-group-flush">
+              <li class="h6 list-group-item list-group-item-action"><a href="gerer.php">Accueil</a></li>
+              <li class="h6 list-group-item list-group-item-action"><a href="gerer-reservations.php">RESERVATIONS</a></li> 
+              <li class="h6 list-group-item list-group-item-action"><a href="gerer-horaires.php">HORAIRES</a></li>
+              <li class="h6 list-group-item list-group-item-action"><a href="gerer-tarifs.php">TARIFS</a></li> 
+              <li class="h6 list-group-item list-group-item-action"><a href="gerer-animaux.php">ANIMAUX</a></li>
+              <li class="h6 list-group-item list-group-item-action"><a href="#">Se déconnecter</a></li>
           </ul>
         </aside>
         <aside class="col-lg-12">

@@ -8,11 +8,11 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="#">Zoo de Lubumbashi - <strong>
+  <a class="navbar-brand" href="#">Zoo de Lubumbashi  <strong>
   <?php
   
    if (isset($_SESSION['nom']) && isset($_SESSION['email']))   {
-    echo $_SESSION['nom'];
+    echo '- ' . $_SESSION['nom'];
    }?>
    </strong>
   </a>

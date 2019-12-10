@@ -122,7 +122,7 @@
         </div>
         <hr>
           <div class="row">
-            <table class="table table-bordered table-striped table-condensed table-sm">
+            <table class="table table-bordered table-striped table-condensed table-sm table-hover">
               <thead>
                   <tr>
                     <th>*</th>
@@ -177,12 +177,13 @@
         <div class="row">
         <aside class="col-lg-12">
         
-        <ul class="list-group">
-          <li class="h6 list-group-item"><a href="gerer.php">Accueil</a></li>
-          <li class="h6 list-group-item"><a href="gerer-reservations.php">RESERVATIONS</a></li>
-          <li class="h6 list-group-item"><a href="gerer-horaires.php">HORAIRES</a></li>
-          <li class="h6 list-group-item"><a href="gerer-visiteurs.php">VISITEURS</a></li>
-          <li class="h6 list-group-item"><a href="#">Se déconnecter</a></li>
+        <ul class="list-group list-group-flush">
+          <li class="h6 list-group-item list-group-item-action"><a href="gerer.php">Accueil</a></li>
+          <li class="h6 list-group-item list-group-item-action"><a href="gerer-reservations.php">RESERVATIONS</a></li>
+          <li class="h6 list-group-item list-group-item-action"><a href="gerer-horaires.php">HORAIRES</a></li>
+          <li class="h6 list-group-item list-group-item-action"><a href="gerer-tarifs.php">TARIFS</a></li>
+          <li class="h6 list-group-item list-group-item-action"><a href="gerer-visiteurs.php">VISITEURS</a></li>
+          <li class="h6 list-group-item list-group-item-action"><a href="#">Se déconnecter</a></li>
         </ul>
         </aside>
         <aside class="col-lg-12">

@@ -1,4 +1,4 @@
-
+<?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +23,11 @@
     <div class="col-lg-12">
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">Zoo de Lubumbashi - <strong>
+    <a class="navbar-brand" href="#">Zoo de Lubumbashi   <strong>
     <?php
-      session_start();
+     
       if (isset($_SESSION['nom']) && isset($_SESSION['email']))   {
-        echo $_SESSION['nom'];
+        echo '- ' . $_SESSION['nom'];
       }?>
     </strong>
     </a>
@@ -82,7 +82,6 @@
         <ul class="list-group">
           <li class="h6 list-group-item"><a href="traitement/vues/se_connecter.php">Se connecter</a></li>
           <li class="h6 list-group-item"><a href="traitement/vues/horaires-tarifs.php">Nos hoaires et tarifs</a></li>
-          <li class="h6 list-group-item"><a href="traitement/vues/vues_admin/gerer.php">ADMIN</a></li>
         </ul>
         </aside>
         <aside class="col-lg-12">

@@ -2,7 +2,7 @@
     <div class="card">
         <img src="../../img/zoo.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Zoo de Lubumbashi</h5>
+            <h5 class="card-title">Zoo de Lubumbashi   </h5>
             <p class="card-text"><small>
             Visitez le zoo de Lubumbashi et faites la rencontre d'une diversité d'espece animal.
             Réservez vos places pour bénéficier de nos protocoles de visites. </small></p>

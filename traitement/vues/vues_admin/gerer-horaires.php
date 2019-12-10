@@ -71,7 +71,7 @@
     <form action="../../controllers/admin/gerer.php" method="post"> 
       <h6>
         <?php
-          if(  isset($_GET['valeur'] )){
+          if( isset($_GET['valeur'] )){
               if( $_GET['valeur'] == 'aucune_donnee') {
                   echo '<span class="badge badge-pill badge-danger">Veuillez remplir les champs.</span>';
               }
@@ -96,7 +96,7 @@
       <div class="form-row">
         <div class="col-3"> 
           <label for=""><small>Date début</small></label>
-          <input type="date" name="date_debut" id="date_debut" class="form-control form-control-sm" value="Lundi"> 
+          <input type="date" name="date_debut" id="date_debut" class="form-control form-control-sm" > 
         </div>
         <div class="col-3"> 
           <label for=""><small>Date fin</small></label>
@@ -123,7 +123,7 @@
     </form>
 
     <hr>
-    <table class="table table-bordered table-striped table-condensed table-sm">
+    <table class="table table-bordered table-striped table-condensed table-sm table-hover">
       <thead>
           <tr>
               <th>*</th>
@@ -168,12 +168,13 @@
         <div class="row">
         <aside class="col-lg-12">
         
-        <ul class="list-group">
-            <li class="h6 list-group-item"><a href="gerer.php">Accueil</a></li>
-            <li class="h6 list-group-item"><a href="gerer-reservations.php">RESERVATIONS</a></li> 
-            <li class="h6 list-group-item"><a href="gerer-visiteurs.php">VISITEURS</a></li> 
-            <li class="h6 list-group-item"><a href="gerer-animaux.php">ANIMAUX</a></li>
-            <li class="h6 list-group-item"><a href="#">Se déconnecter</a></li>
+        <ul class="list-group list-group-flush">
+            <li class="h6 list-group-item list-group-item-action"><a href="gerer.php">Accueil</a></li>
+            <li class="h6 list-group-item list-group-item-action"><a href="gerer-reservations.php">RESERVATIONS</a></li> 
+            <li class="h6 list-group-item list-group-item-action"><a href="gerer-visiteurs.php">VISITEURS</a></li>
+            <li class="h6 list-group-item list-group-item-action"><a href="gerer-tarifs.php">TARIFS</a></li> 
+            <li class="h6 list-group-item list-group-item-action"><a href="gerer-animaux.php">ANIMAUX</a></li>
+            <li class="h6 list-group-item list-group-item-action"><a href="#">Se déconnecter</a></li>
         </ul>
         </aside>
         <aside class="col-lg-12">

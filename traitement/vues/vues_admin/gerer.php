@@ -106,14 +106,36 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-header">
+                Horaires
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">GESTION DES HORAIRES</h5>
+                <p class="card-text">Gérer les horaires de visites et les heurs d'entrée</p>
+                <a href="gerer-horaires.php" class="btn btn-light border">Gérer</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Tarifs
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">GESTION DES TARIFS</h5>
+                <p class="card-text">Gérer les tarifs de paiement pour les visiteurs.</p>
+                <a href="gerer-tarifs.php" class="btn btn-light border">Gérer</a>
+            </div>
+        </div>
+
     </section>
   
     <div class="col-lg-2">
         <div class="row">
         <aside class="col-lg-12">
         
-            <ul class="list-group">
-                <li class="h6 list-group-item"><a href="../../../index.php">Se déconnecter</a></li>
+            <ul class="list-group list-group-flush">
+                <li class="h6 list-group-item list-group-item-action"><a href="../../../index.php">Se déconnecter</a></li>
             </ul>
         </aside>
         <aside class="col-lg-12">
